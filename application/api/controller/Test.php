@@ -25,7 +25,9 @@ class Test extends Controller
     }
 
     public function save(){
-
+        if($data['id']){
+            echo 23;
+        }
         return show(1, 'ok', input('post.'), 201);
     }
 
