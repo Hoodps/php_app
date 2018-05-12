@@ -9,6 +9,7 @@
 namespace app\api\controller;
 
 
+use app\common\lib\exception\ApiException;
 use think\Controller;
 
 class Test extends Controller
@@ -25,8 +26,10 @@ class Test extends Controller
     }
 
     public function save(){
-        if($data['id']){
-            echo 23;
+        $data = input('post.');
+
+        if($data['name'] != 1){
+            throw new ApiException('data not null', 400);
         }
         return show(1, 'ok', input('post.'), 201);
     }
