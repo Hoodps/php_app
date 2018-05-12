@@ -1,22 +1,25 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: Hoodps
- * Date: 2018/5/1
- * Time: 22:12
+ * Date: 2018/5/12
+ * Time: 18:47
  */
-namespace app\admin\controller;
-use \think\Controller;
 
-class Index extends Controller
+namespace app\admin\controller;
+
+
+use think\Controller;
+
+class Login extends Controller
 {
     public function index(){
         return $this->fetch();
     }
 
-    public function welcome(){
-        return '234243sdf';
+    public function check(){
+        $data = input('post.');
+
     }
 
 }
