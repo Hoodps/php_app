@@ -24,4 +24,9 @@ class Test extends Controller
         $id = input('id');
     }
 
+    public function save(){
+
+        return show(1, 'ok', input('post.'), 201);
+    }
+
 }

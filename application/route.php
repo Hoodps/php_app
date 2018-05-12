@@ -14,4 +14,4 @@ use \think\Route;
 
 Route::get('test', 'api/test/index');
 Route::put('test/:id', 'api/test/update');
-Route::delete('test/:id', 'api/test/delete');
+Route::post('test', 'api/test/save');
