@@ -7,6 +7,8 @@
  */
 namespace app\common\lib;
 
+use think\Cache;
+
 class IAuth {
 
     public static function setPassword($data){
@@ -37,6 +39,10 @@ class IAuth {
         }
 
         if((time() - ceil($arr['time'] / 1000)) > config('app.app_sign_time')){
+            return false;
+        }
+
+        if(Cache::get($data['sign'])){
             return false;
         }
         return true;

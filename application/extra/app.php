@@ -13,6 +13,7 @@ return [
         'ios',
         'android'
     ],
-    'app_sign_time' => 1000
+    'app_sign_time' => 100000,
+    'app_sign_cache_time' => 20
 
 ];
