@@ -49,6 +49,25 @@ class Common extends Controller
 
     }
 
+    /**
+     * 获取处理的新闻的内容数据
+     * @param array $news
+     * @return array
+     */
+    protected  function getDealNews($news = []) {
+        if(empty($news)) {
+            return [];
+        }
+
+        $cats = config('cat.lists');
+
+        foreach($news as $key => $new) {
+            $news[$key]['catname'] = $cats[$new['catid']] ? $cats[$new['catid']] : '-';
+        }
+
+        return $news;
+    }
+
     public function testAes(){
         //$str = 'weriuoshdf8324kieurw';
         //$str1 = 'W3gdj8AbZ0ZrAMBWS6CApBJXQjUAs5IrYU8tcE6Uei8=';
