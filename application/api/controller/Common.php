@@ -10,21 +10,38 @@ namespace app\api\controller;
 
 
 use app\common\lib\Aes;
+use app\common\lib\exception\ApiException;
 use app\common\lib\IAuth;
 use think\Controller;
 
 class Common extends Controller
 {
+    public $headers = '';
+
     public function _initialize()
     {
         $this->checkRequestAuth();
-        $this->testAes();
     }
 
     public function checkRequestAuth(){
 
-        $header = request()->header();
-        //halt($header);
+        $headers = request()->header();
+        //halt($headers);
+        if(empty($headers['sign'])){
+            throw new ApiException('sign不存在', 400);
+        }
+
+        if(!in_array($headers['type'], config('app.apptypes'))){
+            throw new ApiException('type不合法', 400);
+        }
+
+        if(!IAuth::checkSignPass($headers)){
+            throw  new ApiException('sign检验不成功', 401);
+        }
+
+        $this->headers = $headers;
+
+
     }
 
     public function testAes(){

@@ -9,4 +9,8 @@
 return [
     'password_pre_halt' => '_#sfnkein', //密码盐
     'aeskey' => 'sgg45747ss223455', // aes 密钥
+    'apptypes' => [
+        'ios',
+        'android'
+    ]
 ];

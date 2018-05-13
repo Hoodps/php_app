@@ -24,4 +24,17 @@ class IAuth {
 
         return $str;
     }
+
+    public static function checkSignPass($data){
+
+        $str = (new Aes())->decrypt($data['sign']);
+        if(empty($str)){
+            return false;
+        }
+        parse_str($str, $arr);
+        if(!is_array($arr) || empty($arr) ){
+            return false;
+        }
+        return true;
+    }
 }
