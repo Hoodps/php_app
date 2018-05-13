@@ -15,3 +15,5 @@ use \think\Route;
 Route::get('test', 'api/test/index');
 Route::put('test/:id', 'api/test/update');
 Route::post('test', 'api/test/save');
+
+Route::post('api/column', 'api/column/read');
