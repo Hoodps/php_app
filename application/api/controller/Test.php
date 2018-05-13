@@ -29,7 +29,7 @@ class Test extends Common
         $data = input('post.');
 
         if($data['name'] != 1){
-            throw new ApiException('data not null', 400);
+            //throw new ApiException('data not null', 400);
         }
         return show(1, 'ok', input('post.'), 201);
     }

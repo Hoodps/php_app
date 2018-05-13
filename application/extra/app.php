@@ -12,5 +12,7 @@ return [
     'apptypes' => [
         'ios',
         'android'
-    ]
+    ],
+    'app_sign_time' => 1000
+
 ];

@@ -12,6 +12,7 @@ namespace app\api\controller;
 use app\common\lib\Aes;
 use app\common\lib\exception\ApiException;
 use app\common\lib\IAuth;
+use app\common\lib\Time;
 use think\Controller;
 
 class Common extends Controller
@@ -21,6 +22,7 @@ class Common extends Controller
     public function _initialize()
     {
         $this->checkRequestAuth();
+        //$this->testAes();
     }
 
     public function checkRequestAuth(){
@@ -52,10 +54,11 @@ class Common extends Controller
 
         $data = [
             'id' => 1,
-            'name' => 'hoodps'
+            'name' => 'hoodps',
+            'time' => Time::get13TimeStamp(),
         ];
         $str = 'ooBlULogZAyUH4ypI9vgFBZYsM4m4Or7/Ci+z8FRfFQ=';
-        echo (new Aes())->decrypt($str); exit;
-        //echo IAuth::setSign($data);exit;
+        //echo (new Aes())->decrypt($str); exit;
+        echo IAuth::setSign($data);exit;
     }
 }

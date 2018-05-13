@@ -35,6 +35,10 @@ class IAuth {
         if(!is_array($arr) || empty($arr) ){
             return false;
         }
+
+        if((time() - ceil($arr['time'] / 1000)) > config('app.app_sign_time')){
+            return false;
+        }
         return true;
     }
 }
