@@ -6,8 +6,10 @@
  * Time: 13:34
  */
 
-namespace app\api\controller;
+namespace app\api\controller\v1;
 
+
+use app\api\controller\Common;
 
 class Column extends Common
 {
